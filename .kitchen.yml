@@ -1,0 +1,23 @@
+---
+driver:
+  name: vagrant
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-16.04
+  - name: windows-2012r2
+    transport:
+      name: winrm
+    driver:
+      name: vagrant
+suites:
+  - name: default
+    run_list:
+      - recipe[kill-switch::default]
+      - recipe[kill-switch-test::default]
+    attributes:
+      kill_switch:
+        engage: false
+        normal_exit: false

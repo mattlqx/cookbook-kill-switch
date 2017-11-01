@@ -1,0 +1,15 @@
+Metrics/LineLength:
+  Severity: refactor
+  Max: 120
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false

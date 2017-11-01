@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'berkshelf'
+gem 'chef', '~> 13.6.0'
+gem 'chefspec', '~> 7.1.0'
+gem 'foodcritic', '~> 12.1.0'
+gem 'kitchen-transport-rsync'
+gem 'kitchen-vagrant'
+gem 'rubocop', '~> 0.51.0'
+gem 'rubocop-rspec'
+gem 'test-kitchen'
