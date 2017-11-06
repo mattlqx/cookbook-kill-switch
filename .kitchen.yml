@@ -15,9 +15,9 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[kill-switch::default]
+      - recipe[kill-switch]
       - recipe[kill-switch-test::default]
     attributes:
       kill_switch:
-        engage: false
+        engage: true
         normal_exit: false
