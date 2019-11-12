@@ -61,4 +61,24 @@ describe 'kill-switch::default' do
       expect(converge).to_not include_recipe('kill-switch-test::default')
     end
   end
+
+  context 'When kill switch is engaged through pending reboot' do
+    before do
+      chef_run.node.normal['kill_switch']['engage'] = false
+      allow(File).to receive(:exist?).and_call_original
+      allow(File).to receive(:exist?).with('/.kill_chef').and_return(false)
+      allow_any_instance_of(Chef::Recipe).to receive(:reboot_pending?).and_return(true)
+    end
+
+    it 'exits noisily' do
+      expect { converge }.to raise_error(SystemExit)
+    end
+
+    it 'exits normally before running other recipes' do
+      chef_run.node.normal['kill_switch']['normal_exit'] = true
+
+      expect { converge }.to_not raise_error
+      expect(converge).to_not include_recipe('kill-switch-test::default')
+    end
+  end
 end

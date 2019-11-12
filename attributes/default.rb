@@ -5,3 +5,4 @@ default['kill_switch']['touch_dir'] = case node['os']
                                         'C:'
                                       end
 default['kill_switch']['touch_file'] = File.join(node['kill_switch']['touch_dir'].to_s, '.kill_chef')
+default['kill_switch']['when_reboot_pending'] = true
