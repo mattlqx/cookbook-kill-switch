@@ -67,7 +67,7 @@ describe 'kill-switch::default' do
       chef_run.node.normal['kill_switch']['engage'] = false
       allow(File).to receive(:exist?).and_call_original
       allow(File).to receive(:exist?).with('/.kill_chef').and_return(false)
-      allow_any_instance_of(Chef::Recipe).to receive(:reboot_pending?).and_return(true)
+      allow_any_instance_of(Chef::Recipe).to receive(:reboot_scheduled?).and_return(true)
     end
 
     it 'exits noisily' do
