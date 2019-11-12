@@ -10,6 +10,8 @@ if node['kill_switch']['engage']
   reason = "node attribute ['kill_switch']['engage']"
 elsif File.exist?(node['kill_switch']['touch_file'])
   reason = "touch file #{node['kill_switch']['touch_file']}"
+elsif node['kill_switch']['when_reboot_pending'] && reboot_pending?
+  reason = 'reboot pending'
 else
   return
 end

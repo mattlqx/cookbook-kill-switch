@@ -35,6 +35,12 @@ There is some monkey-patching that needs to happen to have the option of a clean
     <td>Engage kill switch if a file exists at this path</td>
     <td><tt>C:\\.kill_chef</tt> on Windows, <tt>/.kill_chef</tt> on Linux</td>
   </tr>
+  <tr>
+    <td><tt>['kill_switch']['when_reboot_pending']</tt></td>
+    <td>Bool</td>
+    <td>Engage kill switch if there is a pending reboot</td>
+    <td><tt>true</tt></td>
+  </tr>
 </table>
 
 ## Recipes
